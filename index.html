@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SarahCuse Solutions LLC | Women-Owned Business Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #152340;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f7f3ec;
+    --warm-white: #fdfaf6;
+    --gray: #6b7280;
+    --light-gray: #e8e4de;
+    --text: #1a1a2e;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(10, 22, 40, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: rgba(247,243,236,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(201,168,76,0.06) 100%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 2rem; height: 1px; background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 500; line-height: 1.1;
+    color: var(--cream); margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em { color: var(--gold); font-style: normal; }
+
+  .hero p {
+    font-size: 1rem; line-height: 1.8;
+    color: rgba(247,243,236,0.65);
+    margin-bottom: 2.5rem; max-width: 480px;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 0.875rem 2rem; border-radius: 2px;
+    font-weight: 500; font-size: 0.9rem;
+    text-decoration: none; letter-spacing: 0.04em;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-secondary {
+    border: 1px solid rgba(201,168,76,0.4); color: var(--gold);
+    padding: 0.875rem 2rem; border-radius: 2px;
+    font-weight: 400; font-size: 0.9rem;
+    text-decoration: none; letter-spacing: 0.04em;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+
+  .hero-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 4px; padding: 2.5rem;
+  }
+
+  .hero-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--gold);
+    margin-bottom: 1.5rem; letter-spacing: 0.05em;
+    text-transform: uppercase; font-weight: 500;
+  }
+
+  .cert-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  .cert-item:last-child { border-bottom: none; }
+
+  .cert-icon {
+    width: 36px; height: 36px; border-radius: 2px;
+    background: rgba(201,168,76,0.15);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 1rem;
+  }
+
+  .cert-label { font-size: 0.85rem; font-weight: 500; color: var(--cream); }
+  .cert-sub { font-size: 0.75rem; color: rgba(247,243,236,0.45); margin-top: 2px; }
+
+  /* STATS */
+  .stats {
+    background: var(--cream);
+    padding: 3rem 4rem;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .stats-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 600;
+    color: var(--navy); line-height: 1;
+  }
+  .stat-num span { color: var(--gold); }
+  .stat-label { font-size: 0.8rem; color: var(--gray); margin-top: 0.35rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  /* SECTION BASE */
+  section { padding: 6rem 4rem; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .section-eyebrow::before {
+    content: ''; display: block;
+    width: 1.5rem; height: 1px; background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500; line-height: 1.15;
+    color: var(--navy); margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1rem; color: var(--gray);
+    line-height: 1.75; max-width: 580px;
+  }
+
+  /* SERVICES */
+  #services { background: var(--warm-white); }
+
+  .services-header { margin-bottom: 3.5rem; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--cream);
+    border: 1px solid var(--light-gray);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-3px); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 44px; height: 44px;
+    background: var(--navy);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; margin-bottom: 1.25rem;
+  }
+
+  .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 600;
+    color: var(--navy); margin-bottom: 0.75rem;
+  }
+
+  .service-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+
+  .service-naics {
+    margin-top: 1.25rem; padding-top: 1rem;
+    border-top: 1px solid var(--light-gray);
+    font-size: 0.72rem; color: var(--gold);
+    letter-spacing: 0.08em; font-weight: 500;
+  }
+
+  /* ABOUT */
+  #about { background: var(--navy); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+
+  #about .section-title { color: var(--cream); }
+  #about .section-sub { color: rgba(247,243,236,0.6); max-width: 100%; }
+
+  .about-values { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .value-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+
+  .value-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0; margin-top: 0.5rem;
+  }
+
+  .value-text { font-size: 0.9rem; color: rgba(247,243,236,0.65); line-height: 1.7; }
+  .value-text strong { color: var(--cream); font-weight: 500; }
+
+  .about-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px; padding: 2.5rem;
+  }
+
+  .about-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; color: var(--cream);
+    margin-bottom: 1.5rem; font-weight: 500;
+  }
+
+  .naics-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .naics-list li {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.75rem 0; border-bottom: 1px solid rgba(201,168,76,0.1);
+    font-size: 0.85rem;
+  }
+  .naics-list li:last-child { border-bottom: none; }
+  .naics-name { color: rgba(247,243,236,0.75); }
+  .naics-code {
+    font-family: monospace; font-size: 0.8rem;
+    color: var(--gold); letter-spacing: 0.05em;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--cream); }
+
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+
+  .contact-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 40px; height: 40px; border-radius: 2px;
+    background: var(--navy); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+
+  .contact-label { font-size: 0.72rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.1em; }
+  .contact-val { font-size: 0.95rem; color: var(--navy); font-weight: 500; margin-top: 2px; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.78rem; font-weight: 500; color: var(--navy); letter-spacing: 0.05em; text-transform: uppercase; }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 2px;
+    background: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; color: var(--text);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--gold); }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    background: var(--navy); color: var(--cream);
+    border: none; padding: 0.875rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.05em; cursor: pointer;
+    border-radius: 2px; transition: background 0.2s;
+    text-transform: uppercase;
+  }
+  .form-submit:hover { background: var(--navy-mid); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 2.5rem 4rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; color: var(--cream);
+  }
+  .footer-logo span { color: var(--gold); }
+
+  .footer-text { font-size: 0.8rem; color: rgba(247,243,236,0.35); }
+
+  .wosb-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px; padding: 0.4rem 0.85rem;
+    font-size: 0.72rem; color: var(--gold);
+    letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero, section, .stats, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Sarah<span>Cuse</span> Solutions LLC</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Women-Owned Small Business</div>
+      <h1>Reliable Solutions for <em>Government</em> & Business</h1>
+      <p>SarahCuse Solutions LLC delivers professional administrative, document, and office support services. Based in Syracuse, NY — built to serve federal, state, and local agencies.</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">Our Services</a>
+        <a href="#contact" class="btn-secondary">Work With Us</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">Certifications & Registration</div>
+      <div class="cert-item">
+        <div class="cert-icon">★</div>
+        <div>
+          <div class="cert-label">WOSB Certified</div>
+          <div class="cert-sub">Women-Owned Small Business — SBA Federal Contract Program</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">✦</div>
+        <div>
+          <div class="cert-label">SAM.gov Registered</div>
+          <div class="cert-sub">Active registration — eligible for federal contract awards</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">◆</div>
+        <div>
+          <div class="cert-label">New York State LLC</div>
+          <div class="cert-sub">Registered & in good standing — Onondaga County</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">▲</div>
+        <div>
+          <div class="cert-label">Small Business</div>
+          <div class="cert-sub">SBA-certified small business — eligible for set-aside contracts</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num"><span>5</span>%</div>
+      <div class="stat-label">Federal contracting goal for WOSBs</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$<span>26</span>B+</div>
+      <div class="stat-label">Awarded to WOSBs in FY2024</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span>700</span>+</div>
+      <div class="stat-label">WOSB-eligible NAICS industries</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$<span>4.5</span>M</div>
+      <div class="stat-label">Sole source contract threshold</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div class="section-eyebrow">What We Do</div>
+      <h2 class="section-title">Professional Services Built<br>for Government Agencies</h2>
+      <p class="section-sub">We provide reliable, compliant administrative and operational support services to federal, state, and local government clients.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <div class="service-title">Office Administrative Services</div>
+        <p class="service-desc">Day-to-day administrative support including billing, recordkeeping, personnel coordination, and physical distribution logistics for government offices.</p>
+        <div class="service-naics">NAICS 561110</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📄</div>
+        <div class="service-title">Document Preparation & Management</div>
+        <p class="service-desc">Professional document preparation, word processing, transcription, formatting, and records management services for agencies with large documentation needs.</p>
+        <div class="service-naics">NAICS 561410</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💾</div>
+        <div class="service-title">Data Entry & Processing</div>
+        <p class="service-desc">Accurate data entry, optical scanning, digital conversion, microfilm imaging, and computer input preparation services with fast turnaround times.</p>
+        <div class="service-naics">NAICS 518210</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📦</div>
+        <div class="service-title">Mailroom & Records Services</div>
+        <p class="service-desc">Complete mailroom management, incoming and outgoing mail processing, records organization, filing systems, and archival support.</p>
+        <div class="service-naics">NAICS 561499</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🖨️</div>
+        <div class="service-title">Printing & Copying Services</div>
+        <p class="service-desc">Commercial printing of government forms, manuals, reports, signage, and general documentation with fast, professional results.</p>
+        <div class="service-naics">NAICS 323111</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <div class="service-title">Facilities Support Services</div>
+        <p class="service-desc">Comprehensive facility operations management and light office support for government buildings and agency locations across the region.</p>
+        <div class="service-naics">NAICS 561210</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow" style="color:var(--gold)">About Us</div>
+        <h2 class="section-title">Syracuse-Based.<br>Women-Led. Mission-Driven.</h2>
+        <p class="section-sub">SarahCuse Solutions LLC was founded with a clear mission: to provide reliable, professional business support services while breaking barriers for women entrepreneurs in the federal contracting space.</p>
+        <div class="about-values">
+          <div class="value-item">
+            <div class="value-dot"></div>
+            <div class="value-text"><strong>Certified WOSB</strong> — Eligible for federal set-aside contracts under the SBA Women-Owned Small Business Federal Contract Program.</div>
+          </div>
+          <div class="value-item">
+            <div class="value-dot"></div>
+            <div class="value-text"><strong>Community Rooted</strong> — Proudly based in Syracuse, NY, serving Onondaga County and the surrounding region.</div>
+          </div>
+          <div class="value-item">
+            <div class="value-dot"></div>
+            <div class="value-text"><strong>Reliability First</strong> — Government agencies depend on us for accurate, on-time, compliant service delivery every time.</div>
+          </div>
+          <div class="value-item">
+            <div class="value-dot"></div>
+            <div class="value-text"><strong>Growing with Purpose</strong> — We are committed to expanding our capabilities and workforce to serve more agencies and create local jobs.</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-title">NAICS Code Eligibility</div>
+        <ul class="naics-list">
+          <li><span class="naics-name">Office Administrative Services</span><span class="naics-code">561110</span></li>
+          <li><span class="naics-name">Document Preparation Services</span><span class="naics-code">561410</span></li>
+          <li><span class="naics-name">Data Processing & Hosting</span><span class="naics-code">518210</span></li>
+          <li><span class="naics-name">Business Support Services</span><span class="naics-code">561499</span></li>
+          <li><span class="naics-name">Commercial Printing</span><span class="naics-code">323111</span></li>
+          <li><span class="naics-name">Facilities Support Services</span><span class="naics-code">561210</span></li>
+          <li><span class="naics-name">Janitorial Services</span><span class="naics-code">561720</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="section-eyebrow">Get In Touch</div>
+        <h2 class="section-title">Ready to Work Together?</h2>
+        <p class="section-sub">Whether you're a government agency looking for a certified WOSB vendor or a prime contractor seeking a teaming partner, we'd love to connect.</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-val">Syracuse, NY — Onondaga County</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-val">info@sarahcusesolutions.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">◆</div>
+            <div>
+              <div class="contact-label">Business Status</div>
+              <div class="contact-val">WOSB Certified | SAM.gov Registered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-form">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label>Organization</label>
+            <input type="text" placeholder="Agency or company name">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="your@email.gov">
+          </div>
+          <div class="form-group">
+            <label>Service Needed</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Office Administrative Services</option>
+              <option>Document Preparation & Management</option>
+              <option>Data Entry & Processing</option>
+              <option>Mailroom & Records Services</option>
+              <option>Printing & Copying Services</option>
+              <option>Facilities Support Services</option>
+              <option>Other / General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell us about your needs, timeline, or contract opportunity..."></textarea>
+          </div>
+          <button class="form-submit">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Sarah<span>Cuse</span> Solutions LLC</div>
+    <div class="footer-text">© 2025 SarahCuse Solutions LLC. All rights reserved. Syracuse, NY.</div>
+    <div class="wosb-badge">★ WOSB Certified</div>
+  </div>
+</footer>
+
+</body>
+</html>
